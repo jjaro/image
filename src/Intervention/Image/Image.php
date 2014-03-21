@@ -97,6 +97,8 @@ class Image
         // set image properties
         if (! is_null($source)) {
 
+            $this->initFromPath($source); return; //Erik fix
+
             if ($this->isImageResource($source)) {
 
                 // image properties come from gd image resource
