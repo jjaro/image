@@ -94,6 +94,8 @@ class ImageServiceProvider extends ServiceProvider
                         'Etag' => md5($content)
                     ));
 
+                //Från iwyg/jitimage: Ändrade where-satsen för filename, så att den klarar paths med / i (subdirectories)
+                //Vet inte riktigt varför det funkar :-)
                 //}))->where(array('template' => join('|', array_keys($config['templates'])), 'filename' => '^[\w.]+$'));
                 }))->where(array('template' => join('|', array_keys($config['templates']))))
 ->where('filename', '((([^0-9A-Fa-f]{3}|[^0-9A-Fa-f]{6})?).*?.(?=(\/filter:.*)?))');

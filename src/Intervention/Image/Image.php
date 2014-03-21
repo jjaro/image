@@ -97,7 +97,9 @@ class Image
         // set image properties
         if (! is_null($source)) {
 
-            $this->initFromPath($source); return; //Erik fix
+            //Erik fix för att kunna hantera filnamn med åäö. Annars fattar den inte och tror det är en binär fil?
+            //Så från och med nu funkar endast filer från path, inte från binär-sträng .. vilket inte gör nåt för oss.
+            $this->initFromPath($source); return; 
 
             if ($this->isImageResource($source)) {
 
